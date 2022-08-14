@@ -5,7 +5,7 @@ const port=8000;
 const app= express();
 
 const User = require('./models/User')
-mongoose.connect('mongodb://localhost/userData')
+mongoose.connect
 
 app.use(bodyParser.json());
 
