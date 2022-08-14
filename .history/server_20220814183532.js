@@ -44,6 +44,7 @@ app.route('/users/:id')
         res.json({success: true,data: data})
       }
     })
+  )
 })
 // UPDATE
 .put((req,res)=>{
