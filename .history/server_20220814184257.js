@@ -42,7 +42,9 @@ app.route('/users/:id')
     User.findByIdAndUpdate(
       req.params.id,
       {
-        ...req.body.newData
+        name: req.body.newData.name,
+        email: req.body.newData.email,
+        password: req.body.newData.password
       },
       {
         new: true
