@@ -3,7 +3,6 @@ const mongoose= require('mongoose');
 const bodyParser= require('body-parser');
 const port=8000;
 const app= express();
-const ObjectId = require("mongodb").ObjectId;
 
 const User = require('./models/User')
 mongoose.connect('mongodb+srv://emperror:cpcppdsa@cluster0.zclhnt7.mongodb.net/Intermediate?retryWrites=true&w=majority')
@@ -16,32 +15,13 @@ app.listen(port, ()=>{
 
 // CREATE
 app.post('/users',(req,res)=>{
-  User.create({
-    name: req.body.newData.name,
-    email: req.body.newData.email,
-    password: req.body.newData.password
-  }, (err, data) => {
-    if (err){
-      res.json({success: false,message: err})
-    } else if (!data){
-      res.json({success: false,message: "Not Found"})
-    } else {
-      res.json({success: true,data: data})
-    }
-  })
+  // User.create()
 })
 
 app.route('/users/:id')
 // READ
 .get((req,res)=>{
-  let myquery = { _id: ObjectId(req.params.id) };
-  User.findById(myquery, (res, data) => {
-    if(err){
-      res.json({succes: false, message: err})
-    } else if(data){
-      res.json({success: true, data: data})
-    }
-  })
+  // User.findById()
 })
 // UPDATE
 .put((req,res)=>{
@@ -50,4 +30,8 @@ app.route('/users/:id')
 // DELETE
 .delete((req,res)=>{
   // User.findByIdAndDelete()
+})
+
+app.listen(port, (res, res) => {
+  console.log('app on running on ${port}')
 })

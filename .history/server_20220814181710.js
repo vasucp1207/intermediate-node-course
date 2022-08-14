@@ -3,7 +3,6 @@ const mongoose= require('mongoose');
 const bodyParser= require('body-parser');
 const port=8000;
 const app= express();
-const ObjectId = require("mongodb").ObjectId;
 
 const User = require('./models/User')
 mongoose.connect('mongodb+srv://emperror:cpcppdsa@cluster0.zclhnt7.mongodb.net/Intermediate?retryWrites=true&w=majority')
@@ -34,14 +33,7 @@ app.post('/users',(req,res)=>{
 app.route('/users/:id')
 // READ
 .get((req,res)=>{
-  let myquery = { _id: ObjectId(req.params.id) };
-  User.findById(myquery, (res, data) => {
-    if(err){
-      res.json({succes: false, message: err})
-    } else if(data){
-      res.json({success: true, data: data})
-    }
-  })
+  User.findById(id)
 })
 // UPDATE
 .put((req,res)=>{

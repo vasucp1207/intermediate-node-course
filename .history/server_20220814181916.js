@@ -3,7 +3,6 @@ const mongoose= require('mongoose');
 const bodyParser= require('body-parser');
 const port=8000;
 const app= express();
-const ObjectId = require("mongodb").ObjectId;
 
 const User = require('./models/User')
 mongoose.connect('mongodb+srv://emperror:cpcppdsa@cluster0.zclhnt7.mongodb.net/Intermediate?retryWrites=true&w=majority')

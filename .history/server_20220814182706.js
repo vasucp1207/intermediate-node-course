@@ -31,9 +31,9 @@ app.post('/users',(req,res)=>{
   })
 })
 
-app.route('/users/:id')
+// app.route('/users/:id')
 // READ
-.get((req,res)=>{
+app.get((req,res)=>{
   let myquery = { _id: ObjectId(req.params.id) };
   User.findById(myquery, (res, data) => {
     if(err){
@@ -44,10 +44,10 @@ app.route('/users/:id')
   })
 })
 // UPDATE
-.put((req,res)=>{
+app.put((req,res)=>{
   // User.findByIdAndUpdate()
 })
 // DELETE
-.delete((req,res)=>{
+app.delete((req,res)=>{
   // User.findByIdAndDelete()
 })
